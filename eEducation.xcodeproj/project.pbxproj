@@ -6,11 +6,74 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		1E706E5C1541C4F700C825E9 /* app.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = app.js; sourceTree = "<group>"; };
+		1E706E5D1541C4F700C825E9 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		1E706E621541C4F700C825E9 /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		1E706E641541C4F700C825E9 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		1E706E661541C4F700C825E9 /* index.jade */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.jade; sourceTree = "<group>"; };
+		1E706E671541C4F700C825E9 /* layout.jade */ = {isa = PBXFileReference; lastKnownFileType = text; path = layout.jade; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		1E706E531541C45C00C825E9 = {
 			isa = PBXGroup;
 			children = (
+				1E706E5C1541C4F700C825E9 /* app.js */,
+				1E706E5D1541C4F700C825E9 /* package.json */,
+				1E706E5E1541C4F700C825E9 /* public */,
+				1E706E631541C4F700C825E9 /* routes */,
+				1E706E651541C4F700C825E9 /* views */,
 			);
+			sourceTree = "<group>";
+		};
+		1E706E5E1541C4F700C825E9 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				1E706E5F1541C4F700C825E9 /* images */,
+				1E706E601541C4F700C825E9 /* javascripts */,
+				1E706E611541C4F700C825E9 /* stylesheets */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		1E706E5F1541C4F700C825E9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		1E706E601541C4F700C825E9 /* javascripts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = javascripts;
+			sourceTree = "<group>";
+		};
+		1E706E611541C4F700C825E9 /* stylesheets */ = {
+			isa = PBXGroup;
+			children = (
+				1E706E621541C4F700C825E9 /* style.css */,
+			);
+			path = stylesheets;
+			sourceTree = "<group>";
+		};
+		1E706E631541C4F700C825E9 /* routes */ = {
+			isa = PBXGroup;
+			children = (
+				1E706E641541C4F700C825E9 /* index.js */,
+			);
+			path = routes;
+			sourceTree = "<group>";
+		};
+		1E706E651541C4F700C825E9 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1E706E661541C4F700C825E9 /* index.jade */,
+				1E706E671541C4F700C825E9 /* layout.jade */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
