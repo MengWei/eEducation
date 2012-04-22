@@ -5,8 +5,7 @@ exports.index = function(req, res){
 };
 
 var getExamination = function(gid, cb) {
-    var sql = "SELECT t1.gid, t1.stem, t1.picture, t1.answer, t1.answer, "+
-              "t1.point, t1.createDate, t2.number, t3.type_name, t4.username as teacher "+
+    var sql = "SELECT t1.*, t2.number, t3.type_name, t4.username as teacher "+
               "FROM `eEducation`.`ee_question` as t1, "+
               "`eEducation`.`ee_examination_question` as t2, "+
               "`eEducation`.`ee_question_type` as t3, `eEducation`.`ee_user` as t4 "+
@@ -20,15 +19,12 @@ exports.examination = function(req, res) {
         if(err) return res.send(500);
         if(rs.length == 0) return res.send(204);
         var json = {question:rs};
-        res.format({
-            html: function() {
-                json.title = '课堂练习'
-                res.render('examination', json)
-            },
-        
-            'application/json': function() {
+        if(req.accepts('json')) {
                 res.json(json);
-            }
-        })
+        }
+        else {
+            json.title = '课堂练习'
+            res.render('examination', json)
+        }
     })
 };

@@ -30,7 +30,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.get('/examination.:format?', routes.examination);
+app.get('/examination', routes.examination);
 
 
 app.listen(10080, function(){
