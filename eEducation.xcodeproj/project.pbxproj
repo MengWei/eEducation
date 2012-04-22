@@ -13,17 +13,24 @@
 		1E706E641541C4F700C825E9 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		1E706E661541C4F700C825E9 /* index.jade */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.jade; sourceTree = "<group>"; };
 		1E706E671541C4F700C825E9 /* layout.jade */ = {isa = PBXFileReference; lastKnownFileType = text; path = layout.jade; sourceTree = "<group>"; };
+		1ED05FBB1543A1F2005D22D1 /* env.json */ = {isa = PBXFileReference; path = env.json; sourceTree = "<group>"; };
+		1ED05FC21543ACC8005D22D1 /* mocha.opts */ = {isa = PBXFileReference; lastKnownFileType = text; path = mocha.opts; sourceTree = "<group>"; };
+		1ED05FC41543ACC8005D22D1 /* http.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = http.js; sourceTree = "<group>"; };
+		1ED05FC51543ACF9005D22D1 /* examniantion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = examniantion.js; sourceTree = "<group>"; };
+		1ED41AB21542E14C00794403 /* mysql.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mysql.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		1E706E531541C45C00C825E9 = {
 			isa = PBXGroup;
 			children = (
+				1ED05FBB1543A1F2005D22D1 /* env.json */,
 				1E706E5C1541C4F700C825E9 /* app.js */,
 				1E706E5D1541C4F700C825E9 /* package.json */,
 				1E706E5E1541C4F700C825E9 /* public */,
 				1E706E631541C4F700C825E9 /* routes */,
 				1E706E651541C4F700C825E9 /* views */,
+				1ED05FBD1543AB2D005D22D1 /* test */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				1E706E641541C4F700C825E9 /* index.js */,
+				1ED41AB21542E14C00794403 /* mysql.js */,
 			);
 			path = routes;
 			sourceTree = "<group>";
@@ -76,7 +84,41 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		1ED05FBD1543AB2D005D22D1 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				1ED05FC21543ACC8005D22D1 /* mocha.opts */,
+				1ED05FC31543ACC8005D22D1 /* support */,
+				1ED05FC51543ACF9005D22D1 /* examniantion.js */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		1ED05FC31543ACC8005D22D1 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				1ED05FC41543ACC8005D22D1 /* http.js */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		1ED05FC61543AF5C005D22D1 /* eEducation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 1ED05FC71543AF5C005D22D1 /* Build configuration list for PBXLegacyTarget "eEducation" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/node;
+			dependencies = (
+			);
+			name = eEducation;
+			passBuildSettingsInEnvironment = 1;
+			productName = eEducation;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXProject section */
 		1E706E551541C45C00C825E9 /* Project object */ = {
@@ -95,6 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				1ED05FC61543AF5C005D22D1 /* eEducation */,
 			);
 		};
 /* End PBXProject section */
@@ -112,6 +155,59 @@
 			};
 			name = Release;
 		};
+		1ED05FC81543AF5C005D22D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1ED05FC91543AF5C005D22D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -123,6 +219,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1ED05FC71543AF5C005D22D1 /* Build configuration list for PBXLegacyTarget "eEducation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ED05FC81543AF5C005D22D1 /* Debug */,
+				1ED05FC91543AF5C005D22D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
