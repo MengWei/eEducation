@@ -7,9 +7,18 @@ describe('examination ', function(){
         .get('/examination')
         .set('Accept', 'application/json')
         .end(function(res){
+            done();
+        })
+    })
+    
+    it('should accept to text/html', function(done) {
+        request()
+        .get('/examination')
+        .set('Accept', 'text/html')
+        .end(function(res){
             console.log(res.body);
             done();
         })
     })
-  })
+    })
 })

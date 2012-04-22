@@ -13,7 +13,8 @@
 		1E706E641541C4F700C825E9 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		1E706E661541C4F700C825E9 /* index.jade */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.jade; sourceTree = "<group>"; };
 		1E706E671541C4F700C825E9 /* layout.jade */ = {isa = PBXFileReference; lastKnownFileType = text; path = layout.jade; sourceTree = "<group>"; };
-		1ED05FBB1543A1F2005D22D1 /* env.json */ = {isa = PBXFileReference; path = env.json; sourceTree = "<group>"; };
+		1ECFB73D1544633A00EB6ACE /* examination.jade */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = examination.jade; sourceTree = "<group>"; };
+		1ED05FBB1543A1F2005D22D1 /* env.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env.json; sourceTree = "<group>"; };
 		1ED05FC21543ACC8005D22D1 /* mocha.opts */ = {isa = PBXFileReference; lastKnownFileType = text; path = mocha.opts; sourceTree = "<group>"; };
 		1ED05FC41543ACC8005D22D1 /* http.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = http.js; sourceTree = "<group>"; };
 		1ED05FC51543ACF9005D22D1 /* examniantion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = examniantion.js; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 			children = (
 				1E706E661541C4F700C825E9 /* index.jade */,
 				1E706E671541C4F700C825E9 /* layout.jade */,
+				1ECFB73D1544633A00EB6ACE /* examination.jade */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -227,6 +229,7 @@
 				1ED05FC91543AF5C005D22D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
