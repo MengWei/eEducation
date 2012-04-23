@@ -8,7 +8,7 @@ function ArrayCB(size, OKValue, cb) {
 
 ArrayCB.prototype.count = 0;
 ArrayCB.prototype.Done = false;
-ArrayCB.prototype.cbDone = function(status) {
+ArrayCB.prototype.cbOnce = function(status) {
     if(!this.Done && 
         (++this.count == this.size || this.OK != status)) {
         this.cb(status);
@@ -27,18 +27,22 @@ var getExamination = function(gid, cb) {
               "WHERE t2.examination = 1 and t1.gid=t2.question "+
               "and t3.gid=t1.type and t1.creator=t4.gid"
     mysql.query(sql, function(err, rs) {
-        var acb = new ArrayCB(rs.length, 200, cb);
+        if(err) return cb(500);
+        if(rs.length == 0) return cb(204);
+        var acb = new ArrayCB(rs.length, 200, function(status) {
+            cb(status, rs);
+        });
         rs.forEach(function(question) {
             sql = "SELECT * FROM `ee_question_option` WHERE question="+
-                  question.gid+"Order by number";
+                  question.gid+" Order by number";
             var kThis = this;
             mysql.query(sql, function(err, options) {
                 if(err) {
-                    console.log(err.stack);
-                    kThis.cb(500);
+                    kThis.cbOnce(500);
                 }
                 else {
-                    kThis.cb(200);
+                    question.options = options;
+                    kThis.cbOnce(200);
                 }
             })
         }, acb)
@@ -46,9 +50,8 @@ var getExamination = function(gid, cb) {
 }
 
 exports.examination = function(req, res) {
-    getExamination(1, function(err, rs) {
-        if(err) return res.send(500);
-        if(rs.length == 0) return res.send(204);
+    getExamination(1, function(status, rs) {
+        if(200 != status) return res.send(status);
         var json = {questions:rs};
         if(req.accepts('json')) {
                 res.json(json);

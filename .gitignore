@@ -7,4 +7,9 @@ node_modules
 
 .DS_Store
 
-eEducation.xcodeproj/project.xcworkspace/xcuserdata/ep3.xcuserdatad/UserInterfaceState.xcuserstate
+eEducation.xcodeproj/project.xcworkspace/xcuserdata/*
+eEducation.xcodeproj/xcuserdata/ep3.xcuserdatad/xcschemes/eEducation.xcscheme
+
+eEducation.xcodeproj/xcuserdata/ep3.xcuserdatad/xcschemes/eEducation1.xcscheme
+
+eEducation.xcodeproj/xcuserdata/ep3.xcuserdatad/xcschemes/xcschememanagement.plist

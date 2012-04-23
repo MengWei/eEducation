@@ -7,6 +7,7 @@ describe('examination ', function(){
         .get('/examination')
         .set('Accept', 'application/json')
         .end(function(res){
+            console.log(res.body);
             done();
         })
     })
