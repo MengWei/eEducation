@@ -1,6 +1,7 @@
+- var letters = ["A", "B", "C", "D"]
 each question in questions
     p=question.stem
     each option in question.options
-        input(name=option.number, type="radio", value=#{opiton.content}) 
-        'A'#{option.content} 
+        input(name=letters[option.number-1], type="radio", value=option.number)
+        #{letters[option.number-1]}.    #{option.content}
         br
