@@ -13,6 +13,7 @@ var app = module.exports = express.createServer();
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.set('view options', {layout:false});
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -30,7 +31,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.get('/examination', routes.examination);
+app.get('/examinations/:id', routes.examination);
 
 
 app.listen(10080, function(){

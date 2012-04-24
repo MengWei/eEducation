@@ -1,7 +1,25 @@
-- var letters = ["A", "B", "C", "D"]
-each question in questions
-    p=question.stem
-    each option in question.options
-        input(name=letters[option.number-1], type="radio", value=option.number)
-        #{letters[option.number-1]}.    #{option.content}
-        br
+extends layout
+
+
+block append scripts
+    script
+        var questions = !{JSON.stringify(questions)};
+    script(src='/javascripts/submit.js')
+
+
+block content
+    - var letters = ["A", "B", "C", "D", "E", "F"] 
+    - var question_types = ["选择题", "多选题", "判断题", "填空题", "问答题", "多级题干题", "阅读理解", "作文"];
+    each question in questions
+        p #{question.type_name} 
+            |#{question.number} . #{question.stem}
+        each option in question.options
+            -if (question.type == 1)
+                input(name=question.gid, type="radio", value=option.number)
+                #{letters[option.number-1]}.    #{option.content}
+            -else if (question.type == 2)
+                input(name=question.gid, type="checkbox", value=option.number)
+                #{letters[option.number-1]}.    #{option.content}
+            br        
+    br
+    input#go(type="button", value="完成")

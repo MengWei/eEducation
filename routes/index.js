@@ -17,7 +17,8 @@ ArrayCB.prototype.cbOnce = function(status) {
 };
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' })
+    res.redirect('/examinations/1');
+  //res.render('index', { title: 'Express' })
 };
 
 var getExamination = function(gid, cb) {
@@ -50,7 +51,7 @@ var getExamination = function(gid, cb) {
 }
 
 exports.examination = function(req, res) {
-    getExamination(1, function(status, rs) {
+    getExamination(req.param.id, function(status, rs) {
         if(200 != status) return res.send(status);
         var json = {questions:rs};
         if(req.accepts('json')) {
