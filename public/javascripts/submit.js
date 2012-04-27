@@ -8,7 +8,9 @@ function record() {
 };
 
 record.prototype.submit = function() {
-
+    $.post('http://127.0.0.1:10080/records', {record:this}, function(data) {
+        alert(data);
+    });
 };
 
 record.prototype.correct = function() {
@@ -30,13 +32,14 @@ record.prototype.correct = function() {
             this.total_score += qr.score;
             return qr;
     }, this);
-    alert(JSON.stringify(this));
+//    alert(JSON.stringify(this));
 };
 
 $(function(){
 	$('#go').click(function(){
         var theRecord = new record();
         theRecord.correct();
+        theRecord.submit();
 	});
 	$('#go2').click(function(){
 		$('input[name="testradio"]').each(function(){

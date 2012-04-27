@@ -6,6 +6,9 @@
 var express = require('express')
   , routes = require('./routes');
 
+var Log = require('./log.js');
+var log = Log.create(Log.INFO, {'file':'./node.debug'});
+
 var app = module.exports = express.createServer();
 
 // Configuration
@@ -32,6 +35,8 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/examinations/:id', routes.examination);
+
+app.post('/records', function(req, res) { res.send("well done", { 'Content-Type': 'text/plain' }, 201);});
 
 
 app.listen(10080, function(){

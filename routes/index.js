@@ -16,11 +16,6 @@ ArrayCB.prototype.cbOnce = function(status) {
     }
 };
 
-exports.index = function(req, res){
-    res.redirect('/examinations/1');
-  //res.render('index', { title: 'Express' })
-};
-
 var getExamination = function(gid, cb) {
     var sql = "SELECT t1.*, t2.number, t3.type_name, t4.username as teacher "+
               "FROM `ee_question` as t1, `ee_examination_question` as t2, "+
@@ -62,4 +57,9 @@ exports.examination = function(req, res) {
             res.render('examination', json)
         }
     })
+};
+
+exports.index = function(req, res){
+//    res.redirect('/examinations/1');
+    res.render('index', { title: 'Express' })
 };
