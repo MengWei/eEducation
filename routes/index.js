@@ -59,6 +59,16 @@ exports.examination = function(req, res) {
     })
 };
 
+exports.addRecord = function(req, res) {
+    if(req.accepts('json')) {
+        console.log(JSON.stringify(req.body));
+    }
+    else {
+        console.log(req.body);
+    }
+    res.send("well done", { 'Content-Type': 'text/plain' }, 201);
+};
+
 exports.index = function(req, res){
 //    res.redirect('/examinations/1');
     res.render('index', { title: 'Express' })

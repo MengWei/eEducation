@@ -36,7 +36,7 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/examinations/:id', routes.examination);
 
-app.post('/records', function(req, res) { res.send("well done", { 'Content-Type': 'text/plain' }, 201);});
+app.post('/records', routes.addRecord);
 
 
 app.listen(10080, function(){
