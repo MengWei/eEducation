@@ -19,9 +19,10 @@ record.prototype.submit = function() {
             , question_records: this.question_records
         }
     }
+//    console.log(JSON.stringify(json));
     $.post("/records", json, function(data) {
         $("#result").html(data);
-//        console.log(data);
+        console.log(data);
     });
 };
 
@@ -40,14 +41,17 @@ record.prototype.correct = function() {
                     }
                 } break;
                 case 2: { //multi-option choice
-                    var checkboxes = $('input[name='+question.gid+']');
-                    qr.options = $('input[name='+question.gid+']:checked');
+                    qr.options = [];
                     qr.score = question.point;
-                    question.options.forEach(function(option) {
-//                        console.log(checkboxes[option.number-1].checked, option.right);
-                        if((checkboxes[option.number-1].checked && !option.right) ||
-                            (checkboxes[option.number-1].checked && option.right) ) {
-                            qr.score = 0;
+                    $('input[name='+question.gid+']').each(function() {
+                        var number = parseInt($(this).val());
+                        var option = question.options[number-1];
+                        if(this.checked) {
+                            qr.options.push(number);
+                            if(!option.right) return qr.score = 0;
+                        }
+                        else {
+                            if(option.right) return qr.score = 0;
                         }
                     });
                 } break;
@@ -57,14 +61,14 @@ record.prototype.correct = function() {
 //            console.log(qr);
             return qr;
     }, this);
-//    alert(JSON.stringify(this));
+    console.log(JSON.stringify(this));
 };
 
 $(function(){
 	$('#go').click(function(){
         var theRecord = new record();
         theRecord.correct();
-//        theRecord.submit();
+        theRecord.submit();
 	});
 	$('#go2').click(function(){
 		$('input[name="testradio"]').each(function(){
