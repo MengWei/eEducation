@@ -59,12 +59,15 @@ exports.examination = function(req, res) {
     })
 };
 
+
 exports.addRecord = function(req, res) {
     if(req.accepts('json')) {
+        var sql = "INSERT INTO ee_examination_record (examination, examinee, examine_date, object_score, subject_score, total_score) VALUES(1, 2, '2012-05-01', 30, 60, 90)"
+        req.body
         console.log(JSON.stringify(req.body));
     }
     else {
-        console.log(req.body);
+        res.send(406);
     }
     res.send("well done", { 'Content-Type': 'text/plain' }, 201);
 };
