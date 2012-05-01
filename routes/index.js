@@ -50,7 +50,7 @@ exports.examination = function(req, res) {
         if(200 != status) return res.send(status);
         var json = {questions:rs};
         if(req.accepts('json')) {
-                res.json(json);
+            res.json(json);
         }
         else {
             json.title = '课堂练习'
@@ -61,15 +61,20 @@ exports.examination = function(req, res) {
 
 
 exports.addRecord = function(req, res) {
+    console.log("==add record==", req.body);
     if(req.accepts('json')) {
-        var sql = "INSERT INTO ee_examination_record (examination, examinee, examine_date, object_score, subject_score, total_score) VALUES(1, 2, '2012-05-01', 30, 60, 90)"
-        req.body
-        console.log(JSON.stringify(req.body));
+        var opt = { 
+              table: "ee_examination_record"
+            , fields: req.body.record
+        };
+        mysql.insert(opt, function(err, info) {
+            if(err) return res.send(500);         
+            res.json({insertId:info.insertId});
+        })
     }
     else {
         res.send(406);
     }
-    res.send("well done", { 'Content-Type': 'text/plain' }, 201);
 };
 
 exports.index = function(req, res){

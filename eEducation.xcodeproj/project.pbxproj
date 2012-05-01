@@ -18,6 +18,7 @@
 		1ED05FC21543ACC8005D22D1 /* mocha.opts */ = {isa = PBXFileReference; lastKnownFileType = text; path = mocha.opts; sourceTree = "<group>"; };
 		1ED05FC41543ACC8005D22D1 /* http.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = http.js; sourceTree = "<group>"; };
 		1ED05FC51543ACF9005D22D1 /* examniantion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = examniantion.js; sourceTree = "<group>"; };
+		1ED16BD31550488000199343 /* record.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = record.js; sourceTree = "<group>"; };
 		1ED41AB21542E14C00794403 /* mysql.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mysql.js; sourceTree = "<group>"; };
 		1EDD80BC154B413700E77355 /* log.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = log.js; sourceTree = "<group>"; };
 		9111FD2515465C990088F328 /* submit.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = submit.js; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 				1ED05FC21543ACC8005D22D1 /* mocha.opts */,
 				1ED05FC31543ACC8005D22D1 /* support */,
 				1ED05FC51543ACF9005D22D1 /* examniantion.js */,
+				1ED16BD31550488000199343 /* record.js */,
 			);
 			path = test;
 			sourceTree = "<group>";

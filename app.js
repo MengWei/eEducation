@@ -6,10 +6,10 @@
 var express = require('express')
   , routes = require('./routes');
 
-var Log = require('./log.js');
-var log = Log.create(Log.INFO, {'file':'./node.debug'});
-
 var app = module.exports = express.createServer();
+
+//var Log = require('./log.js');
+//var log = Log.create(Log.INFO, {'file':'./node.debug'});
 
 // Configuration
 
