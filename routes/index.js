@@ -45,7 +45,8 @@ var getExamination = function(gid, cb) {
     })
 }
 
-exports.examination = function(req, res) {
+//exports.examination = function(req, res) {
+var examination = function(req, res) {
     getExamination(req.param.id, function(status, rs) {
         if(200 != status) return res.send(status);
         var json = {questions:rs};
@@ -60,7 +61,8 @@ exports.examination = function(req, res) {
 };
 
 
-exports.addRecord = function(req, res) {
+//exports.addRecord = function(req, res) {
+var addRecord = function(req, res) {
     console.log("==add record==", req.body);
     if(req.accepts('json')) {
         var opt = { 
@@ -81,3 +83,20 @@ exports.index = function(req, res){
 //    res.redirect('/examinations/1');
     res.render('index', { title: 'Express' })
 };
+
+var homepage = function(req, res) {
+    res.render('index', { title: 'gbo'})
+};
+
+var login = function(req, res) {
+    res.json({name:"张三"});
+};
+
+function loadRoutes(app) {
+    app.get('/', homepage);
+    app.get('/login', login);
+    app.get('/examinations/:id', examination);
+    app.post('/records', addRecord);
+}
+
+exports = module.exports = loadRoutes;

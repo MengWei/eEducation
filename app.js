@@ -32,13 +32,17 @@ app.configure('production', function(){
 });
 
 // Routes
-
+routes(app);
+/*
 app.get('/', routes.index);
+app.get('/login', routes.logoin);
 app.get('/examinations/:id', routes.examination);
 
 app.post('/records', routes.addRecord);
+*/
 
-
-app.listen(10080, function(){
+//app.listen(10080, function(){
+app.listen(process.env.PORT, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
+
