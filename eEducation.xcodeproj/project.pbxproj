@@ -22,6 +22,12 @@
 		1ED41AB21542E14C00794403 /* mysql.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mysql.js; sourceTree = "<group>"; };
 		1EDD80BC154B413700E77355 /* log.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = log.js; sourceTree = "<group>"; };
 		9111FD2515465C990088F328 /* submit.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = submit.js; sourceTree = "<group>"; };
+		91CBD4FD155B934800F58A5E /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
+		91CBD4FE155B934800F58A5E /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
+		91CBD4FF155B934800F58A5E /* buttonbgHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbgHover.png; sourceTree = "<group>"; };
+		91CBD500155B934800F58A5E /* loginArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginArrow.png; sourceTree = "<group>"; };
+		91CBD501155B934800F58A5E /* loginbuttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbuttonbg.png; sourceTree = "<group>"; };
+		91CBD503155B941300F58A5E /* login.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = login.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -52,6 +58,11 @@
 		1E706E5F1541C4F700C825E9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				91CBD4FD155B934800F58A5E /* bar.png */,
+				91CBD4FE155B934800F58A5E /* buttonbg.png */,
+				91CBD4FF155B934800F58A5E /* buttonbgHover.png */,
+				91CBD500155B934800F58A5E /* loginArrow.png */,
+				91CBD501155B934800F58A5E /* loginbuttonbg.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -59,6 +70,7 @@
 		1E706E601541C4F700C825E9 /* javascripts */ = {
 			isa = PBXGroup;
 			children = (
+				91CBD503155B941300F58A5E /* login.js */,
 				9111FD2515465C990088F328 /* submit.js */,
 			);
 			path = javascripts;

@@ -5,9 +5,34 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     block scripts
         script(src='http://code.jquery.com/jquery-1.7.2.js')
+        script(src='/javascripts/login.js')
   body
+    block topbar
+      #bar
+          #container
+            #loginContainer
+              a#loginButton(href='#')
+                span#screenText 登陆
+                em
+              div(style='clear: both;')
+              #loginBox
+                form#loginForm(method='post', action='/login')
+                  fieldset#body
+                    fieldset
+                      label(for='email') 邮件地址
+                      input#email(type='text', name='email')
+                    fieldset
+                      label(for='password') 密码
+                      input#password(type='password', name='password')
+                    input#signin(type='button', value='签到')
+                    label(for='checkbox')
+                      input#checkbox(type='checkbox', name='remember')
+                      | 记住我
+                  span
+                    a(href='#') 忘记密码？
+                    
     block content
-        p default content
+        p Welcome to #{title}
     block foot
         #foot 
             p guanbo2002#gmail.com
