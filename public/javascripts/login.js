@@ -19,16 +19,13 @@ $(function() {
         }
     });
     
-    $('#login').click(function() {
-        var json = {
-            //  email: form.email.val()
-            //, password: form.password.val()
-              email: 'gbo@expro.com'
-            , password: '123456'
-        };
-        $.post("/login", json, function(data) {
-           $("#screenText").html(data.name);
-           console.log(data);
-       });
+    $('#signin').click(function() {
+        var postData = form.serialize();
+        $.post('/login', postData, function(data) {
+           $('#screenText').html(data.username);
+//           console.log(data);
+        });
+        button.removeClass('active');
+        box.hide();
     });
 });

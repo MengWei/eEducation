@@ -64,10 +64,12 @@ var examination = function(req, res) {
 //exports.addRecord = function(req, res) {
 var addRecord = function(req, res) {
     console.log("==add record==", req.body);
+    var record = req.body.record;
+    record.examinee = req.session.auth.gid;
     if(req.accepts('json')) {
         var opt = { 
               table: "ee_examination_record"
-            , fields: req.body.record
+            , fields: record
         };
         mysql.insert(opt, function(err, info) {
             if(err) return res.send(500);         
@@ -88,15 +90,31 @@ var homepage = function(req, res) {
     res.render('index', { title: 'gbo'})
 };
 
+function andRestrictAuth(req, res, next) {
+    if(req.session.auth) next();
+    else res.send(401);
+}
+
 var login = function(req, res) {
-    res.json({name:"张三"});
+    console.log('login==',req.body);
+    var auth = req.body;
+    var sql = "select * from ee_user where email='"+auth.email+"'";
+    mysql.query(sql, function(err, rs) {
+        if(err) return res.send(500);
+        if(!rs.length) return res.send(404);
+        if(rs[0].password != auth.password) return res.send(401);
+        req.session.regenerate(function() {
+            req.session.auth = rs[0];
+            res.json(rs[0]);
+        });
+    });
 };
 
 function loadRoutes(app) {
     app.get('/', homepage);
-    app.get('/login', login);
+    app.post('/login', login);
     app.get('/examinations/:id', examination);
-    app.post('/records', addRecord);
+    app.post('/records', andRestrictAuth, addRecord);
 }
 
 exports = module.exports = loadRoutes;

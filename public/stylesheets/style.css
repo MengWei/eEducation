@@ -133,7 +133,7 @@ fieldset#body {
 }
 
 /* Sign In Button */
-#loginForm #login {
+#loginForm #signin {
     width:auto;
     float:left;
     background:#339cdf url(../images/loginbuttonbg.png) repeat-x;
