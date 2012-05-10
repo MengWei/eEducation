@@ -53,10 +53,10 @@ exports.examination = function(req, res) {
             res.json(json);
         }
         else {
-            json.title = '课堂练习'
-            res.render('examination', json)
+            json.title = '课堂练习';
+            res.render('examination', json);
         }
-    })
+    });
 };
 
 
