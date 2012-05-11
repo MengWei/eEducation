@@ -19,6 +19,7 @@ $(function() {
         }
     });
     
+    
     $('#signin').click(function() {
         var postData = form.serialize();
         $.post('/login', postData, function(data) {

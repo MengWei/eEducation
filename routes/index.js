@@ -45,7 +45,6 @@ var getExamination = function(gid, cb) {
     })
 }
 
-//exports.examination = function(req, res) {
 var examination = function(req, res) {
     getExamination(req.param.id, function(status, rs) {
         if(200 != status) return res.send(status);
@@ -60,8 +59,6 @@ var examination = function(req, res) {
     });
 };
 
-
-//exports.addRecord = function(req, res) {
 var addRecord = function(req, res) {
     console.log("==add record==", req.body);
     var record = req.body.record;

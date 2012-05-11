@@ -1,6 +1,5 @@
 function record() {
     this.examination=1;
-//    this.examinee=2;
     this.examine_date='2012-04-24';
     this.object_score=0;
     this.subject_score=0;
@@ -11,7 +10,6 @@ record.prototype.submit = function() {
     var json = { 
         record: {
               examination:this.examination
-//            , examinee:this.examinee
             , examine_date:this.examine_date
             , object_score:this.object_score
             , subject_score:this.subject_score
