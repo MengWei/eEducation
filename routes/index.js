@@ -122,7 +122,7 @@ var addRecord = function(req, res) {
             else {
                 record.gid = info.insertId;
                 var times = record.question_records?record.question_records.length:0;
-                proxy.after("L2Done", times, success);
+                proxy.after("QRDone", times, success);
                 insertQR(record);
             }
         });
