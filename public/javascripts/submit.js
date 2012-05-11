@@ -19,7 +19,7 @@ record.prototype.submit = function() {
     }
 //    console.log(JSON.stringify(json));
     $.post("/records", json, function(data) {
-        $("#result").html(data);
+        $("#result").html("考试记录号："+data.gid);
         console.log(data);
     });
 };
@@ -31,7 +31,8 @@ record.prototype.correct = function() {
                 case 1: {  //single choice
                     var choice = $('input[name='+question.gid+']').filter(':checked').val();
                     if(choice) {
-                        qr.choice = parseInt(choice);
+                        qr.options = [];
+                        qr.options.push(parseInt(choice));
                         if(question.options[choice-1].right) {
                             qr.score = parseInt(question.point);
                             this.object_score += qr.score;
@@ -52,6 +53,7 @@ record.prototype.correct = function() {
                             if(option.right) return qr.score = 0;
                         }
                     });
+                    if(qr.options.length <= 0) delete qr.options;
                 } break;
                 default: break;
             }
