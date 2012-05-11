@@ -2,11 +2,12 @@ extends layout
 
 
 block append scripts
+    script
+        questions = !{JSON.stringify(questions)};
 
 
 block content
     script(src='/javascripts/submit.js')
-    - var questions = !{JSON.stringify(questions)};
     - var letters = ["A", "B", "C", "D", "E", "F"] 
     - var question_types = ["选择题", "多选题", "判断题", "填空题", "问答题", "多级题干题", "阅读理解", "作文"];
     #result
