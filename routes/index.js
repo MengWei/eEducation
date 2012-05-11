@@ -1,4 +1,5 @@
 var mysql = require('./mysql')
+var EventProxy = require('../lib/eventproxy.js').EventProxy;
 
 function ArrayCB(size, OKValue, cb) {
     this.size = size;
@@ -45,7 +46,6 @@ var getExamination = function(gid, cb) {
     })
 }
 
-//exports.examination = function(req, res) {
 var examination = function(req, res) {
     getExamination(req.param.id, function(status, rs) {
         if(200 != status) return res.send(status);
@@ -60,24 +60,75 @@ var examination = function(req, res) {
     });
 };
 
-
-//exports.addRecord = function(req, res) {
 var addRecord = function(req, res) {
     console.log("==add record==", req.body);
     var record = req.body.record;
     record.examinee = req.session.auth.gid;
+    var success = function() {res.json(record);};
+    var error = function(status) {res.send(status);};
+    
+    var proxy = new EventProxy();
+    proxy.assign("error", error);
+    var insertOR = function(qr) {
+        if(qr.options) {
+        qr.options.forEach(function(choice) {
+            var or = {
+                  question_record:qr.gid
+                , choice:choice
+            };
+            var opt = {
+                  table: 'ee_question_option_record'
+                , fields: or
+            };
+            mysql.insert(opt, function(err, info) {
+                if(err) proxy.trigger("error", 500);
+                else {
+                    or.gid = info.insertId;
+                    proxy.trigger("ORDone", or);                        
+                }
+            });
+        });
+        }
+    };
+    
+    var insertQR = function(record) {
+        record.question_records.forEach(function(qr) {
+            qr.examination_record = record.gid;
+            var opt = {
+                  table: 'ee_question_record'
+                , fields: qr
+            };
+            mysql.insert(opt, function(err, info) {
+                if(err) proxy.trigger("error", 500);
+                else {
+                    qr.gid = info.insertId;
+                    var times = qr.options?qr.options.length:0;
+                    proxy.after("ORDone", times, function() {
+                        proxy.trigger("QRDone", qr);                        
+                    });
+                    insertOR(qr);
+                }
+            });
+        });
+    }; 
+    
     if(req.accepts('json')) {
         var opt = { 
               table: "ee_examination_record"
             , fields: record
         };
         mysql.insert(opt, function(err, info) {
-            if(err) return res.send(500);         
-            res.json({insertId:info.insertId});
-        })
+            if(err) proxy.trigger("error", 500);
+            else {
+                record.gid = info.insertId;
+                var times = record.question_records?record.question_records.length:0;
+                proxy.after("L2Done", times, success);
+                insertQR(record);
+            }
+        });
     }
     else {
-        res.send(406);
+        proxy.trigger("error", 406);
     }
 };
 

@@ -1,0 +1,7 @@
+eEducation.xcodeproj
+node.debug
+env.json
+test
+node_modules/express
+node_modules/jade
+node_modules/should

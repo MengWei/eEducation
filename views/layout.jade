@@ -3,9 +3,9 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery-1.7.2.js')
     block scripts
-        script(src='http://code.jquery.com/jquery-1.7.2.js')
-        script(src='/javascripts/login.js')
+    script(src='/javascripts/login.js') 
   body
     block topbar
       #bar
@@ -24,7 +24,7 @@ html
                     fieldset
                       label(for='password') 密码
                       input#password(type='password', name='password')
-                    input#signin(type='button', value='签到')
+                    input#signin(type='button', value='登陆')
                     label(for='checkbox')
                       input#checkbox(type='checkbox', name='remember')
                       | 记住我
@@ -36,4 +36,5 @@ html
     block foot
         #foot 
             p guanbo2002#gmail.com
+
 <!--  body!= body -->

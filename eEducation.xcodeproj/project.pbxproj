@@ -20,8 +20,9 @@
 		1ED05FC51543ACF9005D22D1 /* examniantion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = examniantion.js; sourceTree = "<group>"; };
 		1ED16BD31550488000199343 /* record.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = record.js; sourceTree = "<group>"; };
 		1ED41AB21542E14C00794403 /* mysql.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mysql.js; sourceTree = "<group>"; };
-		1EDD80BC154B413700E77355 /* log.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = log.js; sourceTree = "<group>"; };
 		9111FD2515465C990088F328 /* submit.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = submit.js; sourceTree = "<group>"; };
+		9121C5BE155CC40F00C787D4 /* eventproxy.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = eventproxy.js; path = lib/eventproxy.js; sourceTree = "<group>"; };
+		9121C5BF155CC40F00C787D4 /* log.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = log.js; path = lib/log.js; sourceTree = "<group>"; };
 		91CBD4FD155B934800F58A5E /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		91CBD4FE155B934800F58A5E /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
 		91CBD4FF155B934800F58A5E /* buttonbgHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbgHover.png; sourceTree = "<group>"; };
@@ -34,7 +35,7 @@
 		1E706E531541C45C00C825E9 = {
 			isa = PBXGroup;
 			children = (
-				1EDD80BC154B413700E77355 /* log.js */,
+				9121C5BD155CC40200C787D4 /* lib */,
 				1ED05FBB1543A1F2005D22D1 /* env.json */,
 				1E706E5C1541C4F700C825E9 /* app.js */,
 				1E706E5D1541C4F700C825E9 /* package.json */,
@@ -120,6 +121,15 @@
 				1ED05FC41543ACC8005D22D1 /* http.js */,
 			);
 			path = support;
+			sourceTree = "<group>";
+		};
+		9121C5BD155CC40200C787D4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9121C5BE155CC40F00C787D4 /* eventproxy.js */,
+				9121C5BF155CC40F00C787D4 /* log.js */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
