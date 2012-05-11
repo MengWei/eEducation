@@ -20,7 +20,6 @@
 		1ED05FC51543ACF9005D22D1 /* examniantion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = examniantion.js; sourceTree = "<group>"; };
 		1ED16BD31550488000199343 /* record.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = record.js; sourceTree = "<group>"; };
 		1ED41AB21542E14C00794403 /* mysql.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mysql.js; sourceTree = "<group>"; };
-		1EDD80BC154B413700E77355 /* log.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = log.js; sourceTree = "<group>"; };
 		9111FD2515465C990088F328 /* submit.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = submit.js; sourceTree = "<group>"; };
 		9121C5BE155CC40F00C787D4 /* eventproxy.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = eventproxy.js; path = lib/eventproxy.js; sourceTree = "<group>"; };
 		9121C5BF155CC40F00C787D4 /* log.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = log.js; path = lib/log.js; sourceTree = "<group>"; };
@@ -37,7 +36,6 @@
 			isa = PBXGroup;
 			children = (
 				9121C5BD155CC40200C787D4 /* lib */,
-				1EDD80BC154B413700E77355 /* log.js */,
 				1ED05FBB1543A1F2005D22D1 /* env.json */,
 				1E706E5C1541C4F700C825E9 /* app.js */,
 				1E706E5D1541C4F700C825E9 /* package.json */,
